@@ -1,0 +1,21 @@
+[
+   "http://www.gilt.com/login", 
+   [
+      [
+         [
+            "email", 
+            "USER"
+         ], 
+         [
+            "password", 
+            "PASS"
+         ], 
+         [
+            "remember_me", 
+            "on"
+         ]
+      ], 
+      "https://www.gilt.com/login/redirect", 
+      "POST"
+   ]
+]

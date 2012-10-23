@@ -1,0 +1,21 @@
+[
+   "https://www.hautelook.com/login", 
+   [
+      [
+         [
+            "publicLoginToken", 
+            "637215f8b871805bec27e23616a90889"
+         ], 
+         [
+            "email", 
+            "USER"
+         ], 
+         [
+            "password", 
+            "PASS"
+         ]
+      ], 
+      "https://www.hautelook.com/v2/login", 
+      "POST"
+   ]
+]

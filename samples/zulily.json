@@ -1,0 +1,17 @@
+[
+   "https://www.zulily.com/auth/", 
+   [
+      [
+         [
+            "login[username]", 
+            "USER"
+         ], 
+         [
+            "login[password]", 
+            "PASS"
+         ]
+      ], 
+      "https://www.zulily.com/auth/", 
+      "POST"
+   ]
+]

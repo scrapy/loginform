@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+	<head>
+		<!-- MOBIFY - DO NOT ALTER - PASTE IMMEDIATELY AFTER OPENING HEAD TAG -->
+		<script type="text/javascript">/*<![CDATA[*/(function(a){function b(a,b){if(+a)return~a||(d.cookie=h+"=; path=/");j=d.createElement(e),k=d.getElementsByTagName(e)[0],j.src=a,b&&(j.onload=j.onerror=b),k.parentNode.insertBefore(j,k)}function c(){n.api||b(l.shift()||-1,c)}if(this.Mobify)return;var d=document,e="script",f="mobify",g="."+f+".com/",h=f+"-path",i=g+"un"+f+".js",j,k,l=[!1,1],m,n=this.Mobify={points:[+(new Date)],tagVersion:[6,1]},o=/((; )|#|&|^)mobify-path=([^&;]*)/g.exec(location.hash+"; "+d.cookie);o?(m=o[3])&&!+(m=o[2]&&sessionStorage[h]||m)&&(l=[!0,"//preview"+g+escape(m)]):(l=a()||l,l[0]&&l.push("//cdn"+i,"//files01"+i)),l.shift()?(d.write('<plaintext style="display:none;">'),setTimeout(c)):b(l[0])})(function(){if(/ip(hone|od|ad)|android|blackberry.*applewebkit/i.test(navigator.userAgent)){return[1,"//cdn.mobify.com/sites/beyond-the-rack/production/mobify.js"]}
+		return[0,"//cdn.mobify.com/sites/beyond-the-rack/production/a.js"]})/*]]>*/</script>
+		<!-- END MOBIFY -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="google-site-verification" content="PYiMsysTTIAHZXzLLcMjC_Cjv7oWKAeKoQ1aJEM8e08" />
+		<meta name="msvalidate.01" content="5DCCCAF1C55277525DA55FEB2A27402C" />
+
+		<title>Sign In - Beyond the Rack</title>
+
+		<link rel="stylesheet" type="text/css" href="/css/auth/auth.css?v3">
+		<link rel="stylesheet" type="text/css" href="/css/auth/login.css">
+
+		<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="/css/auth/auth.ie.css">
+		<![endif]-->
+
+		<script type="text/javascript" src="/js/jquery/jquery-1.4.3.min.js"></script>
+		<script type="text/javascript" src="/js/jquery/jquery-ui-1.8.6.custom.min.js?v1"></script>
+		<script type="text/javascript" src="/js/jquery/jquery.cycle.all.min.js?v1"></script>
+
+		<script type="text/javascript" src="/js/auth/auth.js?v5"></script>
+		<script type="text/javascript" src="/js/auth/login.js?v2"></script>
+		
+		<script type="text/javascript">
+			window.fbAsyncInit = function () {
+				// http://bugs.developers.facebook.net/show_bug.cgi?id=18408
+				//FB.Flash.hasMinVersion = function () { return false; };
+				FB.init({
+					appId: 		'109903372385015',
+					channelUrl:	document.location.protocol + '//www.beyondtherack.com/auth/fb_channel',
+					cookie: true,
+					oauth: true,
+					status: true,
+					frictionlessRequests : true
+				});
+
+				FB.Event.subscribe('auth.authResponseChange', function(response) {
+					fblike_or_testimonial();
+				});
+
+				fblike_or_testimonial();
+				
+
+				var fb_busy = false;
+			    $('#fb-login').click(function () {
+				    if (fb_busy) return;
+				    fb_busy = true;
+
+		    		$('#login-fb-waiting-text').text('Connecting with Facebook...');
+
+		    		$('#login-btr').hide('fade', 300);
+	    			$('#login-fb-waiting').delay(300).show('fade', 250).delay(400);
+
+					FB.login(
+						function(response) {
+							if (response.authResponse) {
+						    	$('#login-fb-waiting-text').hide('fade', 250, function () {
+						    		$(this).text('Verifying account...').show('fade', 250).delay(400).queue(function (next2) {
+										$('#mode').val('facebook-auto');
+										$('#login-btr').submit();
+										next2();
+									});
+								});
+			   				}else {
+					    		$('#login-fb-waiting-text').hide('fade', 300, function () {
+						    		$(this).text('Connection with Facebook cancelled.').show('fade', 250).delay(400).queue(function (next2) {
+								    	$('#login-fb-waiting').hide('fade', 300, function () {
+								    		$('#login-btr').show('fade', 400, function () { fb_busy = false; });
+								    	});
+
+								    	next2();
+						    		});
+					    		});
+			   				}
+			 			}, 
+			 			{
+		 					scope : 'email,user_location' 
+		 				}
+		 			);
+			    });
+			}
+
+			$(function () {
+				var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true;
+			    e.src = 'https:' + '//connect.facebook.net/en_US/all.js';
+			    $('#fb-root').append(e);
+			});
+
+		</script>
+
+		<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(function () {
+		var t = _gat._createTracker('UA-6775116-1', 'btr');
+		t._setDomainName('.beyondtherack.com'); t._setAllowHash(false);t._setCustomVar(2, 'auth/login', 'a', 1);t._setAllowLinker(true); 
+			t._trackPageview();
+			t._trackPageLoadTime();
+		});
+		
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+
+ 
+
+
+	</head>
+	<body><div id="body">
+		<div id="fb-root"></div>
+
+					<div id="bgdiv" data-image="//static.beyondtherack.com/assets/homepage/September2012/redbookhomepage.jpg"></div>
+		
+		<div style="position: absolute; top: 50%; right: 30px; width: 440px; height: 436px; margin-top: -218px; background: #E4EDF4; background: -webkit-radial-gradient(45% 140px, circle cover, #cfdeec 35%, #ffffff 90%); background: -moz-radial-gradient(45% 140px, circle cover, #cfdeec 35%, #ffffff 90%); border: solid 1px #c1c1c1;">
+			<div id="popup-container">
+				<div id="popup-close">x</div>
+				<div id="popup-content"></div>
+				<div id="popup-spinner">
+					<img src="/images/spinner.gif" style="margin-right: 10px; vertical-align: middle;"> <span>Loading...</span>
+				</div>
+			</div>
+
+			
+			
+			<div style="width: 360px; margin: 0 auto;">
+				<div style="width: 320px; height: 63px; margin: 10px auto 0px; background: url(/images/logo-text.png) no-repeat;"></div>
+
+									<div style="margin-bottom: 20px; font-size: 18px; line-height: 18px; text-align: center;">Welcome back<br>and happy shopping!</div>
+				
+				<form id="login-btr" style="margin-top: 10px;" action="" method="post">
+					<input type="hidden" name="r" value="">
+					<input id="mode" type="hidden" name="mode" value="">
+
+					<div style="height: 25px;">
+													<div class="cls" style="margin-left: 92px;">
+								<img id="fb-login" style="display: block; width: 150px; height: 25px; cursor: pointer;" src="/images/homepage-fb-login.en_US.png">
+							</div>
+											</div>
+
+					<div class="cls">
+						<label style="float: left; width: 80px; margin-right: 12px; text-align: right; line-height: 24px;" for="email">Email</label>
+						<input id="email" style="float: left; width: 254px;" type="text" name="email" value="">
+					</div>
+
+					<div class="cls" style="margin-top: 5px;">
+						<label style="float: left; width: 80px; margin-right: 12px; text-align: right; line-height: 24px;" for="passwd">Password</label>
+						<input id="passwd" style="float: left; width: 254px;" type="password" name="passwd" value="">
+					</div>
+
+					<div style="margin: 3px 0 0 92px;">
+						<div class="cls">
+							<div style="float: left;"><input id="keepalive" type="checkbox" name="keepalive" value="1" checked="checked"> <label for="keepalive">Keep me signed in</label></div>
+							<div style="float: right; margin-right: 8px; padding-top: 2px;"><a class="popup-link" style="font-size: 11px; line-height: 11px; color: #000;" href="#" data-url="/member/forgot">Forgot password?</a></div>
+						</div>
+
+						<div style="margin-top: 5px;">
+							<button style="width: 160px; height: 24px; border-width: 0; background: url(/images/button-large-black2.png) no-repeat; color: #fff; font-weight: bold; cursor: pointer;" type="submit" name="_submit" value="1">SIGN IN</button>
+						</div>
+
+													<div class="cls" style="margin-top: 10px;">
+								<div style="float: left; width: 8px; height: 8px; margin-top: 2px; background: url(/images/homepage-arrows.png) 0 -8px no-repeat;"></div>
+								<div style="float: left; margin-left: 5px; color: #d60a87;">
+									Not a member? <a style="color: #d60a87;" href="/auth/register?r=">Sign up here</a>
+								</div>
+							</div>
+											</div>
+				</form>
+
+				<form id="login-fb-waiting" style="display: none; height: 110px; margin-top: 10px;">
+					<div style="margin-top: 60px; text-align: center;">
+						<img src="/images/spinner.gif" style="margin-right: 10px; vertical-align: middle;"> <span id="login-fb-waiting-text"></span>
+					</div>
+				</form>
+			</div>
+
+			<div style="position: absolute; bottom: 10px; width: 100%;">
+				<div style="position: relative; width: 360px; height: 80px; margin: 10px auto 0; border: dashed 1px #ccc; border-width: 1px 0;">
+					<div id="testimonial" style="position: absolute; top: 22px; left: 50%; width: 320px; margin-left: -160px; text-align: center; font-size: 11px;">
+						<div id="testimonial-1" class="testimonial"><span class="testimonial-text">"Thank you so much, I am very pleased with your service, and your customer service. I'm very happy with the way you handle issues. People always complain, but it's important to notice good actions. Just to let you know that I am a happy customer and that I am looking forward to ordering again."</span><span class="testimonial-author">- Sonia Kehar</span></div>
+						<div id="testimonial-2" class="testimonial"><span class="testimonial-text">"I tell EVERYONE about BTR and have even gotten friends and family members shopping! They've also become addicted, so thank you for opening my eyes to this amazing online shopping experience! I will be a loyal customer for as long as there's merchandise to purchase on BTR!!"</span><span class="testimonial-author">- Lindsey Adler</span></div>
+						<div id="testimonial-3" class="testimonial"><span class="testimonial-text">"Y'all are my new online addiction. I've made several orders and have been very happy with all of my purchases. You're going to be great for my closet, but bad for my bank account!!"</span><span class="testimonial-author">- Kim</span></div>
+						<div id="testimonial-4" class="testimonial"><span class="testimonial-text">"I just HAD to thank you again and really let you know your customer service is top notch. Not to mention BTR is the best online store I've ever seen... with amazing prices! We have enough negative people in this world that I really like to spread the word and let businesses know when they're being so great - like you guys!"</span><span class="testimonial-author">- Sabrina Fianta</span></div>
+					</div>
+
+					<div id="fb-like" style="position: absolute; top: 7px; left: 50%; width: 360px; margin-left: -180px;"></div>
+				</div>
+
+				<div id="bar-bottom" style="margin-top: 8px;">
+					<div id="bar-bottom-links" style="text-align: center; color: #000;">
+						<a href="?r=&_lang=fr_CA">[Français]</a>
+
+						<span>|</span> <a class="popup-link" href="#" data-url="/info/about/guest?display=clean">About</a>
+						<span>|</span> <a class="popup-link" href="#" data-url="/help/contact/guest">Contact</a>
+						<span>|</span> <a class="popup-link" href="#" data-url="/info/careers/guest">Careers</a>
+						<span>|</span> <a class="popup-link" href="#" data-url="/contact/suppliers/guest">Suppliers</a>
+						<span>|</span> <a href="http://blog.beyondtherack.com/" target="_blank" "="">Blog</a>
+						<span>|</span> <a class="popup-link" href="#" data-url="/contact/press/guest">Press</a>
+						<span>|</span> <a id="privacy-link" href="/info/privacy/simple">Privacy</a>
+					</div>
+
+					<div style="margin-top: 7px; color: #000; font-size: 11px; text-align: center;">&copy; 2012 Beyond the Rack</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			// your parameters
+    		var tmParam = new Array();
+    		tmParam["tmpageref"] = "1";
+
+    		// our parameters
+			var tmPageId = 304; // unique page id
+			var tmBaseUrl = "//tag.didit.com/didit/tman.cgi"; // base url
+			var tmAddJs = 1; // ads a call for the javascript for the page
+		</script>
+		<script type="text/javascript" src="//tag.didit.com/js/tman_iframe.js"></script>
+
+		<script type="text/javascript" src="/js/cookie.js"></script>
+
+	</div></body>
+</html>

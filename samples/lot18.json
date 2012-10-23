@@ -1,0 +1,17 @@
+[
+   "http://www.lot18.com/login", 
+   [
+      [
+         [
+            "email", 
+            "USER"
+         ], 
+         [
+            "password", 
+            "PASS"
+         ]
+      ], 
+      "http://www.lot18.com/login", 
+      "POST"
+   ]
+]

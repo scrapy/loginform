@@ -1,0 +1,98 @@
+    <!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Access to the finest wines at attractive prices</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Access to the finest wines at attractive prices." />
+  <meta name="keywords" content="wine, wine shop, wine clubs, wine club, top rated, top selling, wine basics, top, rated, champagne, california, region, varietal, cabernet, merlot, pinot" />
+  <meta property="og:image" content="http://www.lot18.com/images/logo_opengraph.jpg" />
+  <link rel="stylesheet" href="/css/onboarding/main.css">
+  <link rel="stylesheet" href="/css/onboarding/story.css">
+  <!--[if IE]><link rel="stylesheet" href="/css/onboarding/story-ie.css"><![endif]-->
+  <script src="/js/modernizr.js"></script>
+</head>
+<body>
+  <div class="bottle-bg js-parallax-container"></div>
+  <div class="vingette-bg js-vingette-bg"></div>
+  <div class="header js-header hidden"></div>
+  <div class="page-wrapper register-page js-register-container">
+    <div class="content register js-register-content flipped">
+      <h1>HAVE YOU EVER ENTERED A WINE STORE AND NOT KNOWN WHAT TO BUY?</h1>
+      <h3>DON’T WORRY IT HAPPENS TO EVERYONE</h3>
+      <form method="POST" action="/register" data-ajax="/register.json">
+        <input type="text" placeholder="ENTER YOUR EMAIL TO LEARN MORE" name="email" id="email-register" />
+        <noscript><button type="button" value="YES, TELL ME MORE" name="submit" id="submit">YES, TELL ME MORE</button></noscript>
+        <script type="text/javascript">
+            document.write('<a href="#" class="button js-register">YES, TELL ME MORE</a>');
+        </script>
+      </form>
+    </div>
+    <div class="content login js-login-content flipped">
+      <div class="sub-content login-container js-login-container">
+        <h1>WELCOME BACK</h1>
+        <h3>PLEASE LOGIN BELOW</h3>
+        <form method="POST" action="/login">
+          <input type="text" placeholder="ENTER YOUR EMAIL" name="email" id="email-login" />
+          <input type="password" placeholder="ENTER YOUR PASSWORD" name="password" id="password" data-type="password" />
+          <noscript><button type="button" value="LOG IN" name="submit" id="submit" >LOG IN</button></noscript>
+          <script type="text/javascript">
+            document.write('<a href="#" class="button js-login">LOG IN</a>');
+          </script>
+          <a href="/forgot" class="forgot-password js-forgot-toggle">forgot password?</a>
+        </form>
+      </div>
+      <div class="sub-content forgot-password-container js-forgot-container">
+        <h1>FORGOT YOUR PASSWORD?</h1>
+        <h3>ENTER YOUR EMAIL BELOW</h3>
+        <form method="POST" action="/forgot" data-ajax="/ajax/forgot">
+          <input type="text" placeholder="ENTER YOUR EMAIL" name="email" id="email" />
+          <noscript><button type="button" value="RECOVER MY PASSWORD" name="submit" id="submit">RECOVER MY PASSWORD</button></noscript>
+          <script type="text/javascript">
+            document.write('<a class="button js-recover">RECOVER MY PASSWORD</a>');
+          </script>
+          <a href="/login" class="forgot-password js-forgot-toggle">back to login</a>
+        </form>
+      </div>
+    </div>
+    <div class="existing-user js-login-register-toggle">
+      Already registered? <a href="/login" class="js-login-toggle">login here</a>
+    </div>
+  </div>
+  <div class="story-container js-story-container">
+    <div class="story-content">
+      <h1></h1>
+      <div class="story-items js-story-items"></div>
+      <a href="#" class="button js-proceed"></a>
+    </div>
+  </div>
+  <div class="footer">
+    <a href="http://www.lot18.com" alt="Lot18 Home"><img src="/images/logo_lot18_xsmalll.png" /></a>
+    <ul>
+      <li><a href="/about" alt="About Lot18">About</a></li>
+      <li><a href="/contact/" alt="Contact Lot18">Contact</a></li>
+      <li><a href="http://blog.lot18.com" alt="Lot18 Blog">Blog</a></li>
+      <li><a href="/careers" alt="Careers at Lot18">Careers</a></li>
+    </ul>
+  </div>
+  <script id='storyItem' type='text/x-jquery-tmpl'> 
+    <div class="story-item js-story-item">
+      <img src="${icon}" class="foreground" />
+      {{if icon_bg}}
+        <img src="${icon_bg}" class="background" />
+      {{/if}}
+      <span>${caption}</span>
+    </div>
+  </script> 
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.tmpl.min.js"></script>
+  <script src="/js/spine/spine.js"></script>
+  <script src="/js/spine/tmpl.js"></script>
+  <script src="/js/jquery.ui.effects.min.js"></script>
+  <script src="/js/jquery.mobilebrowser.js"></script>
+  <script src="/js/App.ABFramework.js"></script>
+  <script src="/js/App.OnBoarding.js"></script>
+  <script src="/js/App.OnBoarding.Inputs.js"></script>
+</body>
+</html>

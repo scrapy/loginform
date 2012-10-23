@@ -1,0 +1,21 @@
+[
+   "https://github.com/login", 
+   [
+      [
+         [
+            "authenticity_token", 
+            "tbBrVLj2PRRRc39+sJeug7YwzgMKKhacE6x8WcX18SQ="
+         ], 
+         [
+            "login", 
+            "USER"
+         ], 
+         [
+            "password", 
+            "PASS"
+         ]
+      ], 
+      "https://github.com/session", 
+      "POST"
+   ]
+]

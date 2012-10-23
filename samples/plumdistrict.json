@@ -1,0 +1,25 @@
+[
+   "http://www.plumdistrict.com/signup", 
+   [
+      [
+         [
+            "email", 
+            "USER"
+         ], 
+         [
+            "password", 
+            "PASS"
+         ], 
+         [
+            "user[source]", 
+            "Plum District"
+         ], 
+         [
+            "remember", 
+            "on"
+         ]
+      ], 
+      "http://www.plumdistrict.com/signup", 
+      "GET"
+   ]
+]

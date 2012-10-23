@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+  <title>Plum District | Sign Up for Offers for Savvy Moms and Families. Discounts Daily.</title>
+  <script type="text/javascript">
+      var PD = { production: true };  // initialize global object
+  </script>
+  
+      <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/smoothness/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+      <link href="http://www.plumdistrict.com/stylesheets/common.css?1341059086" media="all" rel="stylesheet" type="text/css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/libs/underscore-1.3.1.min.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/libs/mustache-0.5.0.min.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/libs/backbone-0.9.1.min.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/tracking_pixels.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/models/Perk.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/models/Promotion.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/models/PaymentMethod.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/models/User.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/models/Authorization.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/collections/PaymentMethodCollection.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/collections/PromotionCollection.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/collections/PerkCollection.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/views/PerkPageView.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/app/views/CheckoutView.js?1341059086" type="text/javascript"></script>
+
+      <script src="http://www.plumdistrict.com/javascripts/common.js?1341059086" type="text/javascript"></script>
+  
+  <script src="http://www.plumdistrict.com/javascripts/modernizr.custom.13278.js?1341059086" type="text/javascript"></script>
+<script src="http://www.plumdistrict.com/javascripts/tracking_pixels.js?1341059086" type="text/javascript"></script>
+  <script src="http://www.plumdistrict.com/javascripts/spin.min.js?1341059086" type="text/javascript"></script>
+
+
+  <!-- Don't Change this is fine -->
+  <link href="/stylesheets/site/reset.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/site/new.css" rel="stylesheet" type="text/css">
+
+  <meta name="csrf-param" content="authenticity_token"/>
+<meta name="csrf-token" content="C5LSMUPIcQPKMwm7ILF4YvCHTDoo1JIcYL6aiev13vc="/>
+</head>
+<body>
+  <div class="page_content">
+  <div class="quixote_land">
+    <!--<img src="http://assets.plumdistrict.com.s3.amazonaws.com/landing/index/86517270_2.jpg" class="spring">-->
+
+    <div class="top" style="margin-right: 2%;">
+      <a href="/login">
+        <button class="login_btn"></button>
+      </a>
+
+      <div class="or"></div>
+      <div class="fb_login">
+        <span class='fb_connect_button_wrapper'><a href='#'><img style="margin:0px; float:none;" src="/images/v2/btn_facebook_connect.png"/></a></span>
+      </div>
+    </div>
+    <div class="side" style="margin-right: 2%;">
+      <img src="http://assets.plumdistrict.com.s3.amazonaws.com/landing/index/logo_tagline.png" width="330" height="157" align="Plum District, Daily offers for you and your family." class="logo_tagline">
+
+      <div class="sign_up_shell">
+        <span id="main_error" class="error_text">Error</span>
+
+        <form id="sign_up">
+          <p class="legend" style="font-size: 36px; line-height: 36px;">Sign Up</p>
+
+          <div class="user overlay-label">
+            <label for="email" style="font-size: 24px; top: 28px;">ENTER YOUR E-MAIL</label>
+            <input id="email" name="email" type="text" style="height: 34px;"/>
+            <span class="error_text">Not a valid e-mail address.</span>
+          </div>
+          <div class="user overlay-label">
+            <label for="password" style="font-size: 24px; top: 28px;">CREATE A PASSWORD</label>
+            <input id="password" name="password" type="password" style="height: 34px;"/>
+            <span class="error_text">User Name Not Found</span>
+          </div>
+          <div class="user_bottom">
+            <input type="hidden" id="source" name="user[source]" value="Plum District">
+            <input id="remember" name="remember" type="checkbox" checked="true"/>
+            <label for="remember" style="font-size: 14px;">Remember me</label>
+            <button id="btn_join" class="btn_join"></button>
+          </div>
+        </form>
+        <div class="fb_connect">
+          <p style="font-size: 26px;">or</p>
+          <span class='fb_connect_button_wrapper'><a href='#'><img style="margin:0px; float:none;" src="/images/v2/btn_facebook_connect.png"/></a></span>
+          <p class="agree" style="font-size: 15px;">I agree to the <a href="/p/terms">terms of use</a> and
+            <a href="/p/privacy_policy">privacy policy</a>.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="clear"></div>
+  <div class="q_footer">
+    <div class="footer_top">
+
+      <div class="deal_container">
+        <ul class="register_deal_list">
+          
+            <li class="register_deals">
+              <!--<a href="/moms/discount/everywhere/baby-and-kids-deals/kidorable-15-for-30-worth-of-merchandise-at-kidorable-DrVzyd" class="deal_grid_linked">-->
+              <div class="deal_grid_img"><img alt="Kidorable Everywhere Daily Deal" src="https://s3.amazonaws.com/plumdistrict.com-production/perks/31601/image/sidedeal.jpeg?1348507395" /></div>
+              <div class="deal_info">
+                <!--<p class="perk-title">$15 for $30 Worth of Merchandise at Kidorable</p>-->
+                <p class="perk-business-name">Kidorable</p>
+
+                <p class="perk-city-name">Everywhere</p>
+              </div>
+              <!--</a>-->
+            </li>
+          
+            <li class="register_deals">
+              <!--<a href="/moms/discount/everywhere/food-and-beverage-deals/meals-by-the-week-50-off-13-week-or-26-weeks-of-meal-planning-and-holiday-e-cookb-RBLVcq" class="deal_grid_linked">-->
+              <div class="deal_grid_img"><img alt="Meals By The Week Everywhere Daily Deal" src="https://s3.amazonaws.com/plumdistrict.com-production/perks/31639/image/sidedeal.jpg?1349895498" /></div>
+              <div class="deal_info">
+                <!--<p class="perk-title">13-Week or 26-Weeks of Meal Planning and Holiday E-Cookbook</p>-->
+                <p class="perk-business-name">Meals By The Week</p>
+
+                <p class="perk-city-name">Everywhere</p>
+              </div>
+              <!--</a>-->
+            </li>
+          
+            <li class="register_deals">
+              <!--<a href="/moms/discount/everywhere/travel-deals/family-getaway-half-off-vacation-packages-on-family-getaway-hQpuen" class="deal_grid_linked">-->
+              <div class="deal_grid_img"><img alt="Family Getaway Everywhere Daily Deal" src="https://s3.amazonaws.com/plumdistrict.com-production/perks/8487/image/sidedeal.jpg?1349202768" /></div>
+              <div class="deal_info">
+                <!--<p class="perk-title">Half-Off Vacation Packages on Family Getaway</p>-->
+                <p class="perk-business-name">Family Getaway</p>
+
+                <p class="perk-city-name">Everywhere</p>
+              </div>
+              <!--</a>-->
+            </li>
+          
+            <li class="register_deals">
+              <!--<a href="/moms/discount/everywhere/baby-and-kids-deals/green-kid-crafts-plum-steal-1-month-of-green-kid-crafts-delivered-to-your-door-EzcHtS" class="deal_grid_linked">-->
+              <div class="deal_grid_img"><img alt="Green Kid Crafts Everywhere Daily Deal" src="https://s3.amazonaws.com/plumdistrict.com-production/perks/32023/image/sidedeal.jpg?1350337299" /></div>
+              <div class="deal_info">
+                <!--<p class="perk-title">Plum Steal: 1-Month of Green Kid Crafts Delivered to Your Door</p>-->
+                <p class="perk-business-name">Green Kid Crafts</p>
+
+                <p class="perk-city-name">Everywhere</p>
+              </div>
+              <!--</a>-->
+            </li>
+          
+            <li class="register_deals">
+              <!--<a href="/moms/discount/everywhere/beauty-and-fashion-deals/mai-couture-50-off-mai-couture-blotting-papiers-and-cosmetics-PdJCRg" class="deal_grid_linked">-->
+              <div class="deal_grid_img"><img alt="Mai Couture Everywhere Daily Deal" src="https://s3.amazonaws.com/plumdistrict.com-production/perks/31777/image/sidedeal.jpg?1349204966" /></div>
+              <div class="deal_info">
+                <!--<p class="perk-title">50% off Mai Couture Blotting Papiers and Cosmetics</p>-->
+                <p class="perk-business-name">Mai Couture</p>
+
+                <p class="perk-city-name">Everywhere</p>
+              </div>
+              <!--</a>-->
+            </li>
+          
+        </ul>
+        <div class="clear"></div>
+      </div>
+
+
+    </div>
+    <div class="footer_bottom q_footer_bottom">
+
+      <div class="footer_nav q_footer_nav">
+        <a href="http://www.plumdistrict.com/p/about">about</a>
+        <a href="http://www.plumdistrict.com/p/press">press</a>
+        <a href="http://www.plumdistrict.com/p/jobs">jobs</a>
+        <a href="http://www.plumdistrict.com/sitemap">sitemap</a>
+        <a href="http://www.plumdistrict.com/refer_a_friend">refer a friend</a>
+        <a href="http://blog.plumdistrict.com" target="_blank">blog</a>
+        <a href="http://www.plumdistrict.com/p/contact_us" class="last_link">contact</a>
+      </div>
+      categories:
+      
+      
+        <a href="/deals/by_category/beauty-and-fashion" class="first_link" target="_blank">Beauty and Fashion</a>
+        
+      
+        <a href="/deals/by_category/spa" class="leading_border" target="_blank">Spa</a>
+        
+      
+        <a href="/deals/by_category/restaurants" class="leading_border" target="_blank">Restaurants</a>
+        
+      
+        <a href="/deals/by_category/tickets-and-events" class="leading_border" target="_blank">Tickets and Events</a>
+        
+      
+        <a href="/deals/by_category/baby-and-kids" class="leading_border" target="_blank">Baby and Kids</a>
+        
+      
+        <a href="/deals/by_category/travel" class="leading_border" target="_blank">Travel</a>
+        
+      
+        <a href="/deals/by_category/food-and-beverage" class="leading_border" target="_blank">Food and Beverage</a>
+        
+      
+        <a href="/deals/by_category/health-and-fitness" class="leading_border" target="_blank">Health and Fitness</a>
+        
+      
+        <a href="/deals/by_category/home-and-garden" class="leading_border" target="_blank">Home and Garden</a>
+        
+      
+        <a href="/deals/by_category/plum-services" class="leading_border" target="_blank">Services</a>
+        
+      
+        <a href="/deals/by_category/activities" class="leading_border" target="_blank">Activities</a>
+        
+      
+
+      <p>&copy; 2012 Plum District. All rights
+        reserved. <a href="/p/terms" class="first_link">Terms</a>
+        , <a href="/p/privacy_policy" class="first_link">privacy policy</a>,
+        and <a href="/p/copyright_policy" class="first_link">copyright policy</a>.</p>
+    </div>
+  </div>
+  <div id="more_info" class="hidden">
+    <div class="underlay"></div>
+    <div class="info_box hidden">
+      <h1>Help us find the perfect offers for you.</h1>
+
+      <form>
+        <div class="side_by_side first_side">I live in...</div>
+        <div class="zip_code_container side_by_side">
+          <input class="zip_code" id="zip_code" maxlength="5" name="zip_code" size="10" type="text" value="" />
+          <label for="zip_code">ZIP CODE</label>
+        </div>
+        <div id="zip_code_error" class="side_by_side error_text">*ZIP Code is invalid</div>
+        <br/>
+
+        <div class="clear"></div>
+        <div class="side_by_side first_side">
+          I am a...
+        </div>
+        <div class="side_by_side">
+          <input id="gender_female" name="gender" type="radio" value="female" />
+          <label for="gender_female">woman</label>
+          <br/>
+          <input id="gender_male" name="gender" type="radio" value="male" />
+          <label for="gender_male">man</label>
+        </div>
+        <br/>
+
+        <div class="clear"></div>
+        <div class="side_by_side first_side">
+          I have kids.
+        </div>
+        <div class="side_by_side">
+          <input id="kids_yes" name="kids" type="radio" value="yes" />
+          <label for="kids_yes">yes (or expecting)</label>
+          <br/>
+          <input id="kids_no" name="kids" type="radio" value="no" />
+          <label for="kids_no">no</label>
+        </div>
+        <br/>
+
+        <div class="clear"></div>
+        <div class="children_container">
+          <table class="children">
+            <tr>
+              <td class="first_column"><label for="expectant_child">I am expecting in...</label></td>
+              <td>
+                <select id="expectant_child" name="expectant_child"><option value=""></option>
+<option value="9 months">9 months</option>
+<option value="8 months">8 months</option>
+<option value="7 months">7 months</option>
+<option value="6 months">6 months</option>
+<option value="5 months">5 months</option>
+<option value="4 months">4 months</option>
+<option value="3 months">3 months</option>
+<option value="2 months">2 months</option>
+<option value="1 month">1 month</option>
+<option value="any day now">any day now</option></select>
+              </td>
+            </tr>
+            <tr class="filler_row">
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            
+              <tr class="child_row row_1">
+                <td class="child_column first_column"><label>My kids are...</label></td>
+                <td>
+                  <select class="ages" id="age_1" name="age_1"><option value=""></option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12+">12+</option></select>
+                  <label for="age_1">years old</label>
+                </td>
+              </tr>
+            
+              <tr class="child_row row_2">
+                <td class="child_column first_column"><label>My kids are...</label></td>
+                <td>
+                  <select class="ages" id="age_2" name="age_2"><option value=""></option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12+">12+</option></select>
+                  <label for="age_2">years old</label>
+                </td>
+              </tr>
+            
+              <tr class="child_row row_3">
+                <td class="child_column first_column"><label>My kids are...</label></td>
+                <td>
+                  <select class="ages" id="age_3" name="age_3"><option value=""></option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12+">12+</option></select>
+                  <label for="age_3">years old</label>
+                </td>
+              </tr>
+            
+              <tr class="child_row row_4">
+                <td class="child_column first_column"><label>My kids are...</label></td>
+                <td>
+                  <select class="ages" id="age_4" name="age_4"><option value=""></option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12+">12+</option></select>
+                  <label for="age_4">years old</label>
+                </td>
+              </tr>
+            
+              <tr class="child_row row_5">
+                <td class="child_column first_column"><label>My kids are...</label></td>
+                <td>
+                  <select class="ages" id="age_5" name="age_5"><option value=""></option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12+">12+</option></select>
+                  <label for="age_5">years old</label>
+                </td>
+              </tr>
+            
+          </table>
+        </div>
+        <br/>
+
+        <div class="right_align">
+          <button id="next_button" class="next_button"></button>
+          <br/>
+          <a class="skip_link" href="#">skip</a>
+        </div>
+      </form>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/app/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="/javascripts/app/libs/json2-min.js"></script>
+<script src="/javascripts/app/libs/underscore-1.3.1.min.js"></script>
+<script src="/javascripts/app/libs/backbone-0.9.1.min.js"></script>
+<script src="/javascripts/app/libs/jquery.validationEngine-2.2.4.js"></script>
+<script src="/javascripts/app/libs/jquery.validationEngine-en.js"></script>
+<script src="/javascripts/jquery.infieldlabel.min.js"></script>
+
+<script src="/javascripts/app/controllers/SignUpRouter.js"></script>
+
+<script src="/javascripts/app/models/User.js"></script>
+
+<script>
+    window._gaq = [['_setAccount','UA-15966736-2'],['_trackPageview'],['_trackPageLoadTime']];
+
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+</script>
+
+
+<script>
+    $(function(){
+        window.appGlobals = {
+            referrer: "",
+            // below is what's needed to go from session utm string "[[\"utm_campaign\",\"fff\"],[\"utm_source\",\"eee\"]]"
+            // to formatted json "{\"utm_source\":\"eee\",\"utm_campaign\":\"fff\"}"
+            
+            utm: ''
+        };
+
+        myRouter = new SignUpRouter({ });
+        Backbone.history.start();
+    });
+</script>
+
+
+    <!-- Segment Pixel - Plum District Remarketing - DO NOT MODIFY -->
+    <img src="http://ib.adnxs.com/seg?add=186728&t=2" width="1" height="1" />
+    <!-- End of Segment Pixel -->
+
+
+
+<script src="/javascripts/app/views/SignUpView.js"></script>
+<script src="/javascripts/app/views/RegistrationDealsView.js"></script>
+<script src="/javascripts/app/views/QuixotePageView.js"></script>
+
+
+
+  <div id="fb-root"></div>
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId   : '162033330490856',
+			status  : true, // check login status
+			cookie  : true, // enable cookies to allow the server to access the session
+			xfbml   : true, // parse XFBML
+			oauth   : true  // enable OAuth 2.0
+		});		
+	};
+
+	(function() {
+		var e = document.createElement('script');
+		e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+		e.async = true;
+		document.getElementById('fb-root').appendChild(e);
+	}());
+		
+	// try to logout of FB, then logout of app
+	function facebookLogout(logout_url) {
+		FB.getLoginStatus(function(response) {
+		  if (response.authResponse) {
+			FB.logout();
+		  }
+		});
+		window.location.href = logout_url;
+	}
+	
+	function facebookLogin(url) {
+		FB.login(function(response) {
+		   if (response.authResponse) {
+		     location.href = url + '?access_token=' + escape(response.authResponse.accessToken);
+		   }
+		 }, {scope: 'email'});
+	}
+	
+	function facebookAccessForVendors(business_id) {
+		FB.login(function(response) {
+		   if (response.authResponse) {
+		     location.href = '/businesses/fb_connect?business_id=' + business_id + '&access_token=' + escape(response.authResponse.accessToken);
+		   }
+		 }, {scope: 'manage_pages, offline_access'});
+	}
+	
+	function facebookShare(json) {
+		// var obj = {
+		// 			method: 'feed',
+		// 		    // link: 'http://www.plumdistrict.com/?ref=abc',
+		// 		    link: link,
+		// 			picture: picture,
+		// 		    name: name,
+		// 		    caption: caption,
+		// 		    description: description
+		// 		};
+		
+		function callback(response) {
+ 			// alert(response);
+ 		};
+		
+ 		FB.ui(json, callback);
+	}
+	
+</script>
+
+  <script src="http://www.plumdistrict.com/javascripts/jquery.cookie.js?1341059086" type="text/javascript"></script>
+
+  <!--<script src="http://www.plumdistrict.com/javascripts/user_personalizer.js?1341059086" type="text/javascript"></script>-->
+
+
+  
+
+  
+  <!-- Begin SearchForce tracking code for landing page (4.1) -->
+  <div id="sf_fl_content"></div>
+  <script type="text/javascript" language="Javascript" src="//sftrack.searchforce.net/SFConversionTracking/CTCommon.js"></script>
+  <script type="text/javascript" language="Javascript">
+    SFCookie.include();
+
+    var jcexpire="365";
+    var jAccountID="38447";
+
+    trackSEO('SEO');
+    useCustomParams();
+
+    var jSource = "utm_source";
+    var jCampaignName = "utm_campaign";
+    var jAdGroupName = "";
+    var jKeyword = "";
+    var jCreative = "";
+    var jURLData = "" + window.location.hash + window.location.search;
+
+    jURLData = jURLData.substring(jURLData.indexOf('?') + 1);
+
+    if((jURLData && jURLData != null && jURLData != "null" && jURLData.length > 0) || jtrackOrganic == true)
+      ImageJSLandingProcess();
+  </script>
+  <!-- End SearchForce tracking code -->
+
+
+<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-1.newrelic.com","d4886bbf51",78058,"J14IEkMJWVRXQU1AUgNUFUlZCVhdBg==",0.0,107,new Date().getTime(),"","","","",""])</script></body>
+</html>

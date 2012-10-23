@@ -1,0 +1,21 @@
+[
+   "https://www.thefoundary.com/", 
+   [
+      [
+         [
+            "SignIn_Email", 
+            "USER"
+         ], 
+         [
+            "SignIn_Password", 
+            "PASS"
+         ], 
+         [
+            "SignIn_Remember", 
+            "true"
+         ]
+      ], 
+      "https://www.thefoundary.com/login.html", 
+      "POST"
+   ]
+]

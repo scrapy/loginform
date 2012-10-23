@@ -1,0 +1,29 @@
+[
+   "https://www.beyondtherack.com/auth/login?r=", 
+   [
+      [
+         [
+            "r", 
+            ""
+         ], 
+         [
+            "mode", 
+            ""
+         ], 
+         [
+            "email", 
+            "USER"
+         ], 
+         [
+            "passwd", 
+            "PASS"
+         ], 
+         [
+            "keepalive", 
+            "1"
+         ]
+      ], 
+      "https://www.beyondtherack.com/auth/login?r=", 
+      "POST"
+   ]
+]
