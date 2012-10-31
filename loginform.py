@@ -1,6 +1,8 @@
 from collections import defaultdict
 from lxml import html
 
+__version__ = '0.9' # also update setup.py
+
 def _form_score(form):
     score = 0
     if len(form.inputs.keys()) in (2, 3): # user/pass or user/pass/remember-me
