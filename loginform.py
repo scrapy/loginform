@@ -48,7 +48,7 @@ def _pick_fields(form):
 
 def fill_login_form(url, body, username, password):
     doc = html.document_fromstring(body, base_url=url)
-    form = _pick_form(doc.forms)
+    form = _pick_form(doc.xpath('//form'))
     userfield, passfield = _pick_fields(form)
     form.fields[userfield] = username
     form.fields[passfield] = password
