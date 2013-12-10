@@ -23,6 +23,17 @@ Usage is very simple and best illustrated with an example::
      u'https://github.com/session',
      'POST')
 
+And it is possible to use it as a tool to quickly debug a login form::
+
+    $ python -m loginform -u john -p secret https://github.com/login
+    url: https://github.com/session
+    method: POST
+    payload:
+    - authenticity_token: FQgPiKd1waDL+pycPH8IGutirTnP69SiZgm0zXwn+VQ=
+    - login: john
+    - password: secret
+
+
 Testing
 -------
 
