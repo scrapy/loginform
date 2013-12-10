@@ -23,9 +23,9 @@ def sample_json(name):
 
 def check_sample(name):
     from nose.tools import assert_equal
-    with open(sample_json(name)) as f:
-        url, expected_values = json.load(f)
-    with open(sample_html(name)) as f:
+    with open(sample_json(name), 'rb') as f:
+        url, expected_values = json.loads(f.read().decode('utf8'))
+    with open(sample_html(name), 'rb') as f:
         body = f.read().decode('utf-8')
     values = fill_login_form(url, body, "USER", "PASS")
     values = json.loads(json.dumps(values)) # normalize tuple -> list
@@ -38,13 +38,13 @@ def test_samples():
 def main():
     opts, args = parse_opts()
     if opts.list:
-        print "\n".join(list_samples())
+        print("\n".join(list_samples()))
     else:
         url = args[0]
         r = requests.get(url)
         values = fill_login_form(url, r.text, "USER", "PASS")
         values = (url, values)
-        print json.dumps(values, indent=3)
+        print(json.dumps(values, indent=3))
         if opts.write:
             with open(sample_html(opts.write), 'wb') as f:
                 f.write(r.text.encode('utf-8'))

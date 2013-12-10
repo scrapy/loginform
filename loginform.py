@@ -18,18 +18,21 @@ def _form_score(form):
         type = x.type if isinstance(x, html.InputElement) else "other"
         typecount[type] += 1
 
-    if typecount.get('text') > 1:
+    if typecount['text'] > 1:
         score += 10
-    if not typecount.get('text'):
+    if not typecount['text']:
         score -= 10
-    if typecount.get('password') == 1:
+
+    if typecount['password'] == 1:
         score += 10
-    if not typecount.get('password'):
+    if not typecount['password']:
         score -= 10
-    if typecount.get('checkbox') > 1:
+
+    if typecount['checkbox'] > 1:
         score -= 10
-    if typecount.get('radio'):
+    if typecount['radio']:
         score -= 10
+
     return score
 
 
