@@ -40,9 +40,12 @@ def _pick_form(forms):
 
 def _pick_fields(form):
     """Return the most likely field names for username and password"""
-    userfield, passfield = None, None
+    userfield = passfield = emailfield = None
     for x in form.inputs:
-        type = x.type if isinstance(x, html.InputElement) else "other"
+        if not isinstance(x, html.InputElement):
+            continue
+
+        type = x.type
         if type == 'password':
             if passfield is not None:
                 raise ValueError("Unrecognized login form: %s" % dict(form.inputs))
@@ -51,7 +54,12 @@ def _pick_fields(form):
             if userfield is not None:
                 raise ValueError("Unrecognized login form: %s" % dict(form.inputs))
             userfield = x.name
-    return userfield, passfield
+        elif type == 'email':
+            if emailfield is not None:
+                raise ValueError("Unrecognized login form: %s" % dict(form.inputs))
+            emailfield = x.name
+
+    return userfield or emailfield, passfield
 
 
 def fill_login_form(url, body, username, password):
