@@ -4,6 +4,9 @@ env:
 - TOXENV=py27
 - TOXENV=pypy
 - TOXENV=py33
+matrix:
+  allow_failures:
+  - env: TOXENV=pypy
 install:
 - pip install -M tox
 script: tox
