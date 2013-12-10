@@ -1,6 +1,9 @@
 loginform
 =========
 
+.. image:: https://secure.travis-ci.org/scrapy/loginform.png?branch=master
+   :target: http://travis-ci.org/scrapy/loginform
+
 loginform is a library for filling HTML login forms given the login url,
 username & password. Which form and fields to fill are inferred automatically.
 
