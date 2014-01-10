@@ -4,7 +4,7 @@
       [
          [
             "authenticity_token", 
-            "tbBrVLj2PRRRc39+sJeug7YwzgMKKhacE6x8WcX18SQ="
+            "sNaQtS3cu8EgYvK8av2DrUmu0BUMBylRvJKX/xdrT7o="
          ], 
          [
             "login", 
@@ -13,6 +13,10 @@
          [
             "password", 
             "PASS"
+         ], 
+         [
+            "commit", 
+            "Sign in"
          ]
       ], 
       "https://github.com/session", 

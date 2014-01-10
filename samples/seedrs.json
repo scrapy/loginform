@@ -8,7 +8,7 @@
          ], 
          [
             "authenticity_token", 
-            "SIa/sP4JIRhDi5NR9rdPBtUFbEFwmghD2N+/QbXT4bY="
+            "wgSfccWceGye+M/6IoYOad/qGDEeXoOVddh+/0oseWU="
          ], 
          [
             "session[email]", 
@@ -21,6 +21,10 @@
          [
             "session[remember_me]", 
             "0"
+         ], 
+         [
+            "commit", 
+            "Sign in"
          ]
       ], 
       "https://www.seedrs.com/sign_in", 
