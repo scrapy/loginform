@@ -64,6 +64,14 @@ def _pick_fields(form):
 
     return userfield or emailfield, passfield
 
+def submit_value(form):
+  """Returns the value for the submit input, if any"""
+  values = []
+  for x in form.inputs:
+    if x.type == "submit" and x.name:
+      values.append((x.name, x.value))
+  return values
+
 
 def fill_login_form(url, body, username, password):
     doc = html.document_fromstring(body, base_url=url)
@@ -71,7 +79,8 @@ def fill_login_form(url, body, username, password):
     userfield, passfield = _pick_fields(form)
     form.fields[userfield] = username
     form.fields[passfield] = password
-    return form.form_values(), form.action or form.base_url, form.method
+    form_values = form.form_values() + submit_value(form)
+    return form_values, form.action or form.base_url, form.method
 
 
 def main():
