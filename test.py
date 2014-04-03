@@ -1,7 +1,10 @@
 #!/usr/bin/env python
-
-import optparse, json, glob, requests
+import json
+import glob
+import requests
+import optparse
 from loginform import fill_login_form
+
 
 def parse_opts():
     op = optparse.OptionParser(usage="%prog [-w NAME] url | -l")
@@ -12,14 +15,18 @@ def parse_opts():
         op.error("incorrect number of args")
     return opts, args
 
+
 def list_samples():
     return [fn.split('/')[1][:-5] for fn in glob.glob('samples/*.json')]
+
 
 def sample_html(name):
     return 'samples/%s.html' % name
 
+
 def sample_json(name):
     return 'samples/%s.json' % name
+
 
 def check_sample(name):
     from nose.tools import assert_equal
@@ -28,12 +35,14 @@ def check_sample(name):
     with open(sample_html(name), 'rb') as f:
         body = f.read().decode('utf-8')
     values = fill_login_form(url, body, "USER", "PASS")
-    values = json.loads(json.dumps(values)) # normalize tuple -> list
+    values = json.loads(json.dumps(values))  # normalize tuple -> list
     assert_equal(values, expected_values)
+
 
 def test_samples():
     for name in list_samples():
         yield check_sample, name
+
 
 def main():
     opts, args = parse_opts()
@@ -50,6 +59,7 @@ def main():
                 f.write(r.text.encode('utf-8'))
             with open(sample_json(opts.write), 'wb') as f:
                 json.dump(values, f, indent=3)
+
 
 if __name__ == "__main__":
     main()

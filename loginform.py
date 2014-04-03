@@ -5,7 +5,7 @@ from collections import defaultdict
 from lxml import html
 
 
-__version__ = '0.9'  # also update setup.py
+__version__ = '1.0'  # also update setup.py
 
 
 def _form_score(form):
