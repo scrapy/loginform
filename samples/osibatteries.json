@@ -1,0 +1,29 @@
+[
+   "https://www.osibatteries.com/signin.aspx", 
+   [
+      [
+         [
+            "__VIEWSTATE", 
+            "/wEPDwULLTIxMzYyNTMwMzAPZBYCZg9kFgICCA9kFgYCAg9kFgICAQ8WAh4EVGV4dAUBMGQCDA8WAh8ABQVMb2dpbmQCDQ9kFgICAQ9kFgICAQ9kFgJmD2QWCAIBDw8WAh4HVmlzaWJsZWdkFgICAQ8PFgIfAGVkZAIDDw8WAh8BaGQWAgIBDxQrAAJkEBYBZhYBFgIeDUFsdGVybmF0ZVRleHQFHUJhY2sgVG8gU3RlcCAxOiBTaG9wcGluZyBDYXJ0FgECAWQCBQ9kFgJmD2QWCAIBD2QWBAIFDw8WAh4LTmF2aWdhdGVVcmwFI34vY3JlYXRlYWNjb3VudC5hc3B4P2NoZWNrb3V0PUZhbHNlZGQCIQ8QDxYCHgdDaGVja2VkaGRkZGQCAw8QDxYCHwRoZGRkZAIFDw8WAh8ABQ5+L2RlZmF1bHQuYXNweGRkAgcPZBYCAgMPDxYCHwBlZGQCCQ9kFgJmDw8WAh8BZ2RkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBSxjdGwwMCRQYWdlQ29udGVudCRjdGwwMCRjdHJsTG9naW4kUmVtZW1iZXJNZZK/IwFARvmdcGSLxDpqs0lHk9Dn"
+         ], 
+         [
+            "__EVENTVALIDATION", 
+            "/wEWBwLt6MicDALlwNHFBQLi/K7+CQKy7fP/CALmtJzcCALj1a/QAwLrs7LQBuVbSlUA992QPYWXiWPl8aY81KYH"
+         ], 
+         [
+            "ctl00$PageContent$ctl00$ctrlLogin$UserName", 
+            "USER"
+         ], 
+         [
+            "ctl00$PageContent$ctl00$ctrlLogin$Password", 
+            "PASS"
+         ], 
+         [
+            "ctl00$PageContent$ctl00$ctrlLogin$LoginButton", 
+            "Login"
+         ]
+      ], 
+      "https://www.osibatteries.com/signin.aspx", 
+      "POST"
+   ]
+]

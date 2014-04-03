@@ -15,8 +15,8 @@ def _form_score(form):
 
     typecount = defaultdict(int)
     for x in form.inputs:
-        type = x.type if isinstance(x, html.InputElement) else "other"
-        typecount[type] += 1
+        type_ = x.type if isinstance(x, html.InputElement) else "other"
+        typecount[type_] += 1
 
     if typecount['text'] > 1:
         score += 10
@@ -48,18 +48,12 @@ def _pick_fields(form):
         if not isinstance(x, html.InputElement):
             continue
 
-        type = x.type
-        if type == 'password':
-            if passfield is not None:
-                raise ValueError("Unrecognized login form: %s" % dict(form.inputs))
+        type_ = x.type
+        if type_ == 'password' and passfield is None:
             passfield = x.name
-        elif type == 'text':
-            if userfield is not None:
-                raise ValueError("Unrecognized login form: %s" % dict(form.inputs))
+        elif type_ == 'text' and userfield is None:
             userfield = x.name
-        elif type == 'email':
-            if emailfield is not None:
-                raise ValueError("Unrecognized login form: %s" % dict(form.inputs))
+        elif type_ == 'email' and emailfield is None:
             emailfield = x.name
 
     return userfield or emailfield, passfield
@@ -70,6 +64,7 @@ def submit_value(form):
   for x in form.inputs:
     if x.type == "submit" and x.name:
       values.append((x.name, x.value))
+      break
   return values
 
 
