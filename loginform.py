@@ -5,12 +5,13 @@ from collections import defaultdict
 from lxml import html
 
 
-__version__ = '0.9' # also update setup.py
+__version__ = '0.9'  # also update setup.py
 
 
 def _form_score(form):
     score = 0
-    if len(form.inputs.keys()) in (2, 3): # user/pass or user/pass/remember-me
+    # In case of user/pass or user/pass/remember-me
+    if len(form.inputs.keys()) in (2, 3):
         score += 10
 
     typecount = defaultdict(int)
@@ -58,14 +59,14 @@ def _pick_fields(form):
 
     return userfield or emailfield, passfield
 
+
 def submit_value(form):
-  """Returns the value for the submit input, if any"""
-  values = []
-  for x in form.inputs:
-    if x.type == "submit" and x.name:
-      values.append((x.name, x.value))
-      break
-  return values
+    """Returns the value for the submit input, if any"""
+    for x in form.inputs:
+        if x.type == "submit" and x.name:
+            return [(x.name, x.value)]
+    else:
+        return []
 
 
 def fill_login_form(url, body, username, password):
