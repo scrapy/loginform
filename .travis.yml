@@ -6,9 +6,11 @@ env:
   - TOXENV=pypy
   - TOXENV=py33
   - TOXENV=py34
+
 matrix:
   allow_failures:
     - env: TOXENV=pypy
+
 install:
   - pip install -U tox codecov
 script: tox
@@ -16,4 +18,16 @@ after_success: codecov
 
 cache:
   directories:
-    - $HOME/.cache/pip
+    - "$HOME/.cache/pip"
+
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: scrapy
+  password:
+    secure: WRKizofYrVoAy4+Et7x4CuUpkx2t5f2Pcn5gkAmi0YNz1e9h7tvJM5bgtqRHzcGhQ9AhpPpLC4U5kxHn81nxo+bDV0h0kAcJo1nNNSxPYTlM7KzK2acqFsCuKwUly+CxZquzF5v7C6X0MpHAk5j1Msyn4ERGBZX0XZ2fDp2A+fs=
+  on:
+    tags: true
+    all_branches: true
+    repo: scrapy/loginform
+    condition: "$TOXENV == py27"
