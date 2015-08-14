@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 setup(
     name='loginform',
-    version='1.0',  # also update loginform.__version__
+    version='1.0.0',
     license='BSD',
     description='Fill HTML login forms automatically',
     author='Scrapinghub',
