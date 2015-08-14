@@ -1,18 +1,19 @@
 language: python
 python: 2.7
+sudo: false
 env:
-- TOXENV=py27
-- TOXENV=pypy
-- TOXENV=py33
+  - TOXENV=py27
+  - TOXENV=pypy
+  - TOXENV=py33
+  - TOXENV=py34
 matrix:
   allow_failures:
-  - env: TOXENV=pypy
+    - env: TOXENV=pypy
 install:
-- pip install -M tox
+  - pip install -U tox codecov
 script: tox
-notifications:
-  irc:
-    use_notice: true
-    skip_join: true
-    channels:
-    - "irc.freenode.org#scrapy"
+after_success: codecov
+
+cache:
+  directories:
+    - $HOME/.cache/pip

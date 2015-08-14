@@ -4,11 +4,15 @@ loginform
 .. image:: https://secure.travis-ci.org/scrapy/loginform.png?branch=master
    :target: http://travis-ci.org/scrapy/loginform
 
+.. image:: https://img.shields.io/codecov/c/github/scrapy/loginform/master.svg
+   :target: http://codecov.io/github/scrapy/loginform?branch=master
+   :alt: Coverage report
+
+
 loginform is a library for filling HTML login forms given the login url,
 username & password. Which form and fields to fill are inferred automatically.
 
 It's implemented on top of `lxml form filling`_, and thus depends on lxml.
-Running tests also requires `requests`_.
 
 Usage
 -----
@@ -46,7 +50,7 @@ samples are managed as follows:
 First, you select a site to try, find out its login url, and run the following
 command to try loginform on it::
 
-    $ python test.py https://github.com/login
+    $ python test_samples.py https://github.com/login
     [
        "https://github.com/login", 
        [
@@ -73,18 +77,17 @@ From the output you can judge if it worked or not. If it worked, great. If it
 didn't, you would hack ``loginform.py`` to make it work and then add the sample
 with::
 
-    $ python test.py https://github.com/login -w github
+    $ python test_samples.py https://github.com/login -w github
 
 Note that we gave the sample a name (``github`` in this case).
 
 To list all availabe samples use::
 
-    $ python test.py -l
+    $ python test_samples.py -l
 
-To run all tests, install nosetests and run::
+To run all tests, install tox and run::
 
-    $ nosetests
+    $ tox
 
 .. _lxml form filling: http://lxml.de/lxmlhtml.html#forms
-.. _requests: http://docs.python-requests.org/
-.. _nosetests: https://nose.readthedocs.org/en/latest/
+.. _tox: https://pypi.python.org/pypi/tox
