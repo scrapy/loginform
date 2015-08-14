@@ -1,5 +1,6 @@
 language: python
 python: 2.7
+sudo: false
 env:
   - TOXENV=py27
   - TOXENV=pypy
@@ -12,3 +13,7 @@ install:
   - pip install -U tox codecov
 script: tox
 after_success: codecov
+
+cache:
+  directories:
+    - $HOME/.cache/pip
