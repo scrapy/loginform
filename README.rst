@@ -81,7 +81,7 @@ with::
 
 Note that we gave the sample a name (``github`` in this case).
 
-To list all availabe samples use::
+To list all available samples use::
 
     $ python test_samples.py -l
 
