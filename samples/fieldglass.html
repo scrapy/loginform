@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="/scripts/jquery/jquery.min.v4f252523d4af0b478c810c2547a63e19.js"></script>
+    <script type="text/javascript" src="/scripts/jquery/jquery.plugins.min.v354618892c1fbbe72d154963ae3eeaa7.js"></script>
+    <script type="text/javascript" src="/scripts/browser.vb8e52c34626e505be47de1a1465ce0f4.js"></script>
+    <!--  test for bg  -->
+    <script type="text/javascript" src="/scripts/login.vaad11b6136d19bda0fe2e93a496904d4.js"></script>
+
+
+    <style>
+        html {
+            display: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        if (self == top) {
+            document.documentElement.style.display = 'block';
+        } else {
+            top.location = self.location;
+        }
+        //we are loading the login page inside a regular page,
+        //-->need to reload the regular login page
+        if ($("body.layoutBase").size() > 0) {
+                location.href = "/login.do";
+        }
+    </script>
+    
+
+    <title>SAP Fieldglass Login</title>
+
+    <link rel="shortcut icon" href="/images/interface/logo.ico?v=3"/>
+    
+        <link href="/scripts/new_login.v2bcb37c81a8dc72a59d8b29b6c5c9ed7.css" title="default" rel="stylesheet" type="text/css"/>
+    
+
+
+    <script type="text/javascript">
+    
+
+
+
+        function passwordFocus() {
+            if(document.loginForm.password != null && document.loginForm.password.style.display != "none")
+                document.loginForm.password.focus();
+            return false;
+        }
+        function checkCookiesSupport() {
+            // This script does not writes any information to the browser it only checks if cookies are allowed
+            var isCookieSupported = 0
+            document.cookie = "name=InSite; path=/;";
+            isCookieSupported = document.cookie.indexOf("InSite");
+            // If Cookies are allowd delete the cookie created
+            if (isCookieSupported < 0) {
+                document.cookie = "name=InSite; path=/; expires=Thu, 1 JAN 1970 00:00:01 UTC;";
+            }
+            if (document.getElementById("isCookieEnabled")) {
+                document.getElementById("isCookieEnabled").value = (!(isCookieSupported < 0));
+            }
+        }
+
+        function changeLanguage(obj) {
+            var url = "/?" + obj.name + "=" + obj.value;
+            window.location.href = url
+        }
+        $(".selectLanguage option:first").removeAttr('selected');
+
+        function validateLogin(form) {
+            if (form.username.value.length == 0) {
+                alert("Please enter your username.");
+                form.username.focus();
+                return false;
+            }
+            var pswdField = null;
+            if (form.password != null)
+                pswdField = form.password;
+            else if (form.timeBasedOneTimePasscode != null)
+                pswdField = form.timeBasedOneTimePasscode;
+            if (pswdField.value.length == 0) {
+                alert("Please enter your password.");
+                pswdField.focus();
+                return false;
+            }
+
+            form.client_width.value = windowDimensions().innerWidth;
+            form.client_height.value = windowDimensions().innerHeight;
+            form.flash_enabled.value = isFlashEnabled();
+            return true;
+        }
+
+        // if the login is in the preview pane put it in the main window.
+        if (window.name == "previewPaneFrame" && parent && parent.name.indexOf("modalWindow") <= -1) {
+            parent.location.href = "/login.jsp?next=" + escape(parent.location.pathname + parent.location.search);
+        }
+
+        if (window.name == "tagPreviewPaneFrame" && parent && parent.name.indexOf("modalWindow") <= -1) {
+            parent.location.href = "/login.jsp?next=" + escape(parent.location.pathname + parent.location.search);
+        }
+
+        // if the window is a modal window then close the window with the return code
+        // of SESSION_DISCONNECT so that the window will know to go to the login page.
+
+        var RETURN_CODE_SESSION_DISCONNECT = -1;
+
+        if (typeof window.dialogHeight != 'undefined') {
+            window.returnValue = RETURN_CODE_SESSION_DISCONNECT;
+            window.close();
+        }
+
+        if ((window.name && window.name.indexOf("modalWindow") > -1) || (parent && parent.name.indexOf("modalWindow") > -1)) {
+            window.opener.modalWindowCallBack(RETURN_CODE_SESSION_DISCONNECT);
+            window.close();
+        }
+
+        var capsWarning = false;
+
+        function capsDetect(event) {
+            if (capsWarning) {
+                $("#capsLockWarningMsg").css("display", "none");
+                return;
+            }
+            // Which key was pressed
+            var theKey = event.keyCode;
+            if (event.keyCode == 0) {
+                theKey = event.which
+            }
+            // Was the shift key pressed?
+            var theShift = event.shiftKey || (event.modifiers && (event.modifiers & 4)); //bitWise AND
+
+            // If upper case, check if shift is not pressed. if lower case, check if shift is pressed
+            if (
+                    ((theKey > 64 && theKey < 91 && !theShift) || (theKey > 96 && theKey < 123 && theShift))) {
+                $("#capsLockWarningMsg").css("display", "");
+                if (isIE7 || isIE8Doc7 || isIE9Doc7){
+                    $("#capsLockWarningMsg").css("margin-top","-107px");
+        }
+                window.setTimeout('$("#capsLockWarningMsg").css("display","none")', 5000);
+                capsWarning = true;
+            }
+        }
+
+
+
+    /**
+     * Fix the ltr option in the languages select (Flipping parenthesis)
+     */
+    function fixRtlOption() {
+        $("option").each(function () {
+            if (this.value == "iw_IL") {
+                // Add to the rtl option a right-to-left mark &rlm; (for js - Octal:\u200f)
+                this.text += '\u200f';
+            }
+        });
+    }
+
+    $(function(){
+        
+            document.loginForm.username.focus();
+        
+
+        checkCookiesSupport();
+
+        // Fix the ltr option in the languages select (Flipping parenthesis)
+        fixRtlOption();
+    }) ;
+    </script>
+</head>
+  
+
+<body class="loginPageStyle" id="loginBackgroundImg">
+<div id="wrapper">
+    <form name="loginForm" method="post" action="/login.do" onsubmit="return validateLogin(this);" autocomplete="off">
+<!-- end  -->
+        <div id="header_new">
+            <ul id="topHeader">
+                <li class="modeHeader" id="dev_mode">&nbsp;</li>
+                <li class="linkHeader"><div id="select_new"><select name="language" aria-haspopup="true" tabIndex="0" onchange="changeLanguage(this)"  size="1" class="selectLanguage" aria-label="Supported Languages">
+<option value="de_DE">Deutsch (Deutschland)</option>
+<option value="en_GB">English (United Kingdom)</option>
+<option value="en_US" selected>English (United States)</option>
+<option value="es_MX">Español (México)</option>
+<option value="fr_CA">Français (Canada)</option>
+<option value="fr_FR">Français (France)</option>
+<option value="it_IT">Italiano (Italia)</option>
+<option value="nl_NL">Nederlands (Nederland)</option>
+<option value="pl_PL">Polski (Polska)</option>
+<option value="pt_BR">Português (Brasil)</option>
+<option value="pt_PT">Português (Europeu)</option>
+<option value="sv_SE">Svenska (Sverige)</option>
+<option value="mn_XC">Монгол (Монгол Улс)</option>
+<option value="ru_RU">Русский (Россия)</option>
+<option value="iw_IL">עברית (ישראל)</option>
+<option value="zh_TW">中文 (繁體)</option>
+<option value="zh_CN">中文(简体)</option>
+<option value="ja_JP">日本語（日本）</option>
+<option value="ko_KR">한국어(대한민국)</option>
+</select>
+</div></li>
+            </ul>
+        <div id="logo" class="clear_bottom"><a href="http://www.fieldglass.com"><img src="/images/login/fieldglass_logo.png" alt="SAP Fieldglass" /></a></div>
+        </div>
+
+
+        <div id="content_area_new">
+
+            
+
+            <div id="welcome_message" class="fl">
+                
+    <div class="marketing_msg_welcome">
+              <h1 class="secondary_content_header">Welcome to SAP Fieldglass</h1>
+              <div class="marketing_msg_welcome_text">SAP Fieldglass provides the industry’s leading cloud technology for services procurement and external workforce management.
+              </div>
+       </div>
+                
+                <ul id="FGlinks">
+                    <li class="linkHeader"><a href="http://www.fieldglass.com" target="_blank">Fieldglass.com</a></li>
+
+                    <li class="linkHeader"><a href="http://www.fieldglass.com/resources" target="_blank">Resources</a></li>
+
+                    <li class="linkHeader"><a href="http://www.fieldglass.com/solutions/support" target="_blank">Support </a></li>
+                </ul>
+            </div>
+
+            <div id="primary_content" class="fl">
+            
+                    <input type="hidden" name="qalogin" value="null"/>
+            
+                <div class="entryLoginInput">
+                <label class="loginPageLabel" for="usernameId_new">Username</label>
+                        <input type="text" name="username" maxlength="100" size="35" tabindex="1" autocomplete="off" value="" id="usernameId_new">
+                </div>
+
+                
+
+                    <div class="entryLoginInput" style="padding-top: 7px; padding-bottom: 10px;">
+                    <label class="loginPageLabel" for="passwordId_new">Password</label>
+                        <input type="password" name="password" maxlength="50" size="35" tabindex="2" autocomplete="off" value="" onkeypress="capsDetect(event)" id="passwordId_new"></div>
+                
+                
+            
+
+                <div id="capsLockWarningMsg"  role="alert" style="display:none;">
+                    Warning: <b>Caps Lock is On!</b><br/><br/>Having Caps Lock on may cause you to enter your password incorrectly.<br/><br/>Please press Caps Lock to turn it off before entering your password.
+                </div>
+
+
+                <input type="hidden" id="nextPageLabel" value='Next >'/>
+                
+                
+                <div class="entryLoginInput_button">
+                    <button type="submit" name="action" tabindex="3" value="Sign In"
+                            class="formLoginButton_new">
+                              Sign In
+                            </button>
+                </div>
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+                <div class="entryLoginInput">
+                    <a href="/need_help.jsp?language=en_US" id="login_help_new" tabindex="4">
+                        Need help signing in?
+                    </a>
+                </div>
+                
+
+                <div class="supplierRegistrationLink">  
+                    <a href="/supplier_registration.do?source=NewSupplier&language=en_US"  tabindex="5">
+                        Register here to become a new supplier
+                    </a>
+                </div>
+
+                <input type="hidden" name="next" value="">
+
+                <input type="hidden" name="client_width">
+                <input type="hidden" name="client_height">
+                <input type="hidden" name="flash_enabled">
+                <input type="hidden" name="noBrowserCheck" value="">
+            
+
+                    
+                <input type="hidden" name="isCookieEnabled" id="ismCookieEnabled" value="true">
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+
+
+
+    <script type="text/javascript">
+    if (isIE8) {
+        $('.loginPageStyle').css('backgroundImage','url(/images/login/bg_IE.jpg)');
+    }
+    document.msCapsLockWarningOff = true;
+    if ($("#logout").size() > 0) {
+        $("#content_area_new").css("height","auto");
+    }
+    $("#usernameId_new").focus();
+
+    if (isIE){
+       $("#header_new").css("background-image", "none");
+    }
+    if ( (isIE8  || isIE7 || isIE9) ){
+        $("#usernameId_new").css("padding-top", "8px");
+        $("#passwordId_new").css("padding-top", "8px");
+    }
+    if ($(".errorDiv").size() > 0) {
+        $(".errorDiv").css("margin-bottom","0px");
+        $("#welcome").css("margin-bottom", "20px");
+        if (isIE7) {
+            $("#login_help").css("margin-top", "10px");
+        } else {
+            $("#login_help").css("margin-top", "26px");
+        }
+
+    }
+
+
+            if ($("form[name*='loginForm']").size() > 0) {
+                if ($(".jqmWindow").html() != null && $(".jqmWindow").html().indexOf('loginForm')) {
+                    $("body").html($(".jqmWindow").html());
+                    // set the next as empth in this case
+                    $("input[name=next]").val("");
+                }
+                if ($(".jqmWindowPMO").html() != null && $(".jqmWindowPMO").html().indexOf('loginForm')) {
+                    $("body").html($(".jqmWindowPMO").html());
+                    $("input[name=next]").val("");
+                }
+
+                $(function() {
+            $('input[type=password]').bind('keypress', function (e) {
+                e = e || window.event;
+                var charCode = e.charCode || e.keyCode;
+                if (charCode == 13) {
+                    $(this).parents('form')[0].submit();
+                    return false;
+                }
+            });
+        });
+
+        $(function(){
+            $("input[name='client_width']").val(windowDimensions().innerWidth);
+            $("input[name='client_height']").val(windowDimensions().innerHeight);
+            $("input[name='flash_enabled']").val(isFlashEnabled());
+            });
+        }
+
+        function setCusorPosition(formElm, pos) {
+            if (formElm.setSelectionRange) {
+                formElm.setSelectionRange(0, 0);
+            } else if (formElm.createTextRange) {
+                var range = formElm.createTextRange();
+                range.collapse(true);
+                range.moveEnd('character', 0);
+                range.moveStart('character', 0);
+                range.select();
+            }
+        }
+
+        document.cookie = "selectedTab=withoutwarnings;path=/"; //for TS bulk approval default setting.
+        
+        </script>
+
+    <div id="footer_new">
+    <div class="footer-content-wrap">
+        <div id="footer_content" class="footer-content-area">
+            
+            &copy; 2016 SAP SE or an SAP affiliate company. All rights reserved.
+            Confidential and Proprietary Information of SAP America, Inc.<br/> <a href="/PrivacyPolicy.en_US.pdf" target="_blank">Privacy Policy</a> &nbsp;&nbsp;&nbsp; <a href="/TermsOfUse.en_US.pdf" target="_blank">Terms of Use</a> 
+            <br>
+            (fas-21 prod1)
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

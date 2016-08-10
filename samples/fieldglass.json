@@ -1,0 +1,37 @@
+[
+   "https://www.fieldglass.net/login.do",
+   [
+       [
+           [
+               "language",
+               "en_US"
+           ],
+           [
+               "qalogin",
+               "null"
+           ],
+           [
+               "username",
+               "USER"
+           ],
+           [
+               "password",
+               "PASS"
+           ],
+           [
+               "next",
+               ""
+           ],
+           [
+               "noBrowserCheck",
+               ""
+           ],
+           [
+               "isCookieEnabled",
+               "true"
+           ]
+        ],
+        "https://www.fieldglass.net/login.do",
+        "POST"
+    ]
+]
