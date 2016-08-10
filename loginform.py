@@ -63,6 +63,9 @@ def _pick_fields(form):
 def submit_value(form):
     """Returns the value for the submit input, if any"""
     for x in form.inputs:
+        if not isinstance(x, html.InputElement):
+            continue
+
         if x.type == "submit" and x.name:
             return [(x.name, x.value)]
     else:
