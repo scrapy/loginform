@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='loginform',
-    version='1.1.1',
+    version='1.2.0',
     license='BSD',
     description='Fill HTML login forms automatically',
     author='Scrapinghub',
