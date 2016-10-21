@@ -52,12 +52,12 @@ def _pick_fields(form):
         type_ = x.type
         if type_ == 'password' and passfield is None:
             passfield = x.name
-        elif type_ == 'text' and userfield is None:
-            userfield = x.name
         elif type_ == 'email' and emailfield is None:
             emailfield = x.name
+        elif type_ == 'text' and userfield is None:
+            userfield = x.name
 
-    return userfield or emailfield, passfield
+    return emailfield or userfield, passfield
 
 
 def submit_value(form):
