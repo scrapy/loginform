@@ -1,0 +1,37 @@
+[
+   "https://www.meed.com/sign-in/", 
+   [
+      [
+         [
+            "referrer", 
+            ""
+         ], 
+         [
+            "repostcheck", 
+            "I19"
+         ], 
+         [
+            "formID", 
+            "ID1918"
+         ], 
+         [
+            "submitcheck", 
+            "submitform"
+         ], 
+         [
+            "email", 
+            "USER"
+         ], 
+         [
+            "passWord", 
+            "PASS"
+         ], 
+         [
+            "remember_pword", 
+            "on"
+         ]
+      ], 
+      "https://www.meed.com/sign-in", 
+      "POST"
+   ]
+]
